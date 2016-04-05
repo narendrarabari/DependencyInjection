@@ -1,6 +1,7 @@
 package com.nr.main;
 
 import com.nr.entities.BusinessContact;
+import com.nr.entities.Contact;
 import com.nr.entities.PersonalContact;
 
 /**
@@ -12,13 +13,11 @@ public class ContactApplication {
 
 	public static void main(String[] args) {
 		
-		PersonalContact persContact=new PersonalContact();
-		persContact.display();
+		Contact contact=new PersonalContact();
+		contact.display();
 		
-		BusinessContact busnContact=new BusinessContact();
-		busnContact.display();
-		
-
+		contact=new BusinessContact();
+		contact.display();
 	}
 
 }
