@@ -1,8 +1,9 @@
 package com.nr.main;
 
-import com.nr.entities.BusinessContact;
-import com.nr.entities.Contact;
-import com.nr.entities.PersonalContact;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.nr.entities.ContactDirectory;
 
 /**
  * 
@@ -11,13 +12,18 @@ import com.nr.entities.PersonalContact;
  */
 public class ContactApplication {
 
-	public static void main(String[] args) {
-		
-		Contact contact=new PersonalContact();
-		contact.display();
-		
-		contact=new BusinessContact();
-		contact.display();
-	}
+	private static ApplicationContext context;
+
+	public static void main( String[] args )
+    {
+    	context = new ClassPathXmlApplicationContext("/com/nr/config/Bean.xml");
+    	
+    	ContactDirectory contactDirectory= (ContactDirectory) context.getBean("contactDirectory");
+    	
+    	contactDirectory.displayContact();
+    	
+    	
+    }
+
 
 }
